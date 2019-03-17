@@ -514,7 +514,6 @@ var prefix = "^";
  
     if (message.author.id === client.user.id) return;
     if (message.guild) {
-   let embed = new Dord.RichEmbed()
     let args = message.content.split(' ').slice(1).join(' ');
 if(message.content.split(' ')[0] == prefix + 'bc') {
     if (!args[1]) {
