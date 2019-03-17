@@ -499,23 +499,7 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
-     if (message.content === "^help") {
-message.author.send(`
-      **Adminastor**
-^bc برودكاست
-^kick طرد مع سبب
-^ban باند مع سبب
-^image صورة سيرفر
-^mute اعطاء العضو ميوت
-^unmute الغاء الميوت من العضو
-^giveaway يسوي قيف اواي
 
-
-
-**سيتم اضافة موقع بدل هاذا هيلب ف ترقبو البوت في بداية**`);
-    }
-});
 
 
 
