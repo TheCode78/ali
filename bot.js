@@ -138,8 +138,8 @@ client.on('message', message => {
   if (command == "ban") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  
+  
   let user = message.mentions.users.first();
   let reason = message.content.split(" ").slice(2).join(" ");
   /*let b5bzlog = client.channels.find("name", "5bz-log");
