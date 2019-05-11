@@ -135,7 +135,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "ban") {
+  if (command == "brayanoob") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   
