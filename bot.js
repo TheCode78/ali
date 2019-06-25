@@ -323,12 +323,64 @@ client.on('message', function(msg) {
 
 
 
+var prefix = "^"
+client.on('message', (message) => {
+  if(message.content.startsWith(prefix + "kick")) {
+          if(!message.member.hasPermission('KICK_MEMBERS')) return message.reply('THIS PERMISSION FOR STAFF ONLY !')
+          var member= message.mentions.members.first();
+          member.kick().then((member) => {
+              message.channel.send(member.displayName + ' This Person Has Been Kicked From The Server !');
+          }).catch(() => {
+              message.channel.send("❌");
+          });
+     }
+});
+
 
 
 
  
 
 
+
+
+    
+client.on('message', message => {
+    var prefix = "^"
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+
+  message.guild.member(user).ban(7, user);
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
 
 
 
@@ -429,7 +481,7 @@ message.react("❌")
 
 
 client.on("message", message => {
-    if(message.content.startsWith(prefix + "nickall")) {
+    if(message.content.startsWith(prefix + "^nickall")) {
         let args = message.content.split(" ").slice(1).join(" ");
         if(!message.member.hasPermission("MANAGE_NICKNAMES")) return;
             if(!args) {
@@ -441,6 +493,46 @@ client.on("message", message => {
                 })
     }
 });
+
+
+client.on('message', message => {
+var prefix = '^'
+    if(message.content === prefix + "mutechannel") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك برمشن قفل الشات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("**__تم تقفيل الشات__ ✅ **")
+           });
+             }
+
+ if(message.content === prefix + "f!unmutechannel") {
+                     if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك برمشن  فتح الشات**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("**__تم فتح الشات__✅**")
+           });
+             }
+             
+      
+    
+});
+
+
+
+
+
+
+
+
+
 
 
 
