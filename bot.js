@@ -169,6 +169,21 @@ client.on('ready', () => {
 
 
 
+client.on('message', msg => {
+  if (msg.content === 'بوت وش رأيك ب هرهر') {
+    msg.reply('والله مش عاجبني بنده من سيرفر ._.');
+  }
+});
+
+
+client.on('message', msg => {
+  if (msg.content === 'https://') {
+    msg.reply('لا تنشر بالله ذا سيرفر اكواد');
+   msg.delete()
+  }
+});
+
+
 m.reactions.get("tada").users;
                        let list = users.array().filter(u => u.id !== m.author.id);
                        let gFilter = list[Math.floor(Math.random() * list.length) + 0];
@@ -228,13 +243,6 @@ m.reactions.get("tada").users;
     });
   }
 }); 
-
-
-
-
-
-
-
                 
 
 
