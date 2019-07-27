@@ -157,12 +157,20 @@ client.on('ready', () => {
 
 
 
-  
+  client.on('message', msg => {
+  if (msg.content === 'طيب وش رأيك ب عماد فوكس') {
+    msg.reply('مدري وش رأيك فيه انت');
+  }
+});
 
 
 
 
-
+client.on('message', msg => {
+  if (msg.content === 'طيب وش رأيك ب دحومي') {
+    msg.reply('جيد اعطيه افضل رتبة في سيرفر يمكن يفيدنا');
+  }
+});
 
 
 
