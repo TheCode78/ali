@@ -21,6 +21,9 @@ client.on('message', message => {
 
 
 
+client.on('ready', () => {
+    client.guilds.map((guild) => console.log(`Name: ${guild.name} (ID: ${guild.id})`));
+});
 
 
 
