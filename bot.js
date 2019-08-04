@@ -5,6 +5,14 @@ const client = new Discord.Client();
 
 
 
+client.on('message', message => {
+  if (message.channel.id === "601363945592193024") {
+    message.react('☑')
+      .then(() => {
+        message.react('🚫')
+      });
+  }
+});
 
 
 
