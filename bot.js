@@ -308,7 +308,7 @@ client.on("ready", () => {
 
     // Setup YOUR personnal settings
     const configs = {
-        "targetServerID": "696690664598929518"
+        "targetServerID": "696690664598929518",
         "accountID": "422011239523287060",
         "botNickname": "MPBot",
         "botIcon": 'https://6.top4top.net/p_1415xrqem1.jpg',
