@@ -365,9 +365,7 @@ let num = msg.content.split(" ")[2]
 db.fetch(`pointuser_${msg.guild.id}_${ss.id}`)
  if(ssad == 0) return msg.channel.send(`**❌ | Error**`);
  msg.channel.send(`**✅ | Done**`);
- db.subtract(`point_${msg.guild.id}_${ss.id}`, Number(num))
- } 
-});
+ Uv
  
  
 client.login(process.env.BOT_TOKENN);
